@@ -2,6 +2,7 @@
 
 Use --image photo.jpg to process a photo without the RealSense camera.
 The camera defaults to 1920 x 1080 at 8 FPS; override with --width/--height/--fps.
+Captures include a cleaned black/white PNG and the original color A4 crop.
 """
 
 import argparse
@@ -58,13 +59,53 @@ def normalize_a4(frame, corners, dpi=300, orientation="auto"):
     return cv2.warpPerspective(frame, transform, (output_width, output_height), flags=cv2.INTER_CUBIC)
 
 
+def clean_black_white(image, dpi=300, ink_contrast=18, background_mm=12,
+                     min_ink_area=0, border_mm=0):
+    """Remove gradual lighting variations and return only 0/255 pixels.
+
+    Estimate the paper brightness by closing over strokes, then divide out
+    illumination. Lower ink_contrast preserves fainter marks. background_mm
+    should exceed the width of the widest stroke/filled shape to preserve.
+    Speck removal and edge clearing are optional because dots and edge marks
+    may be intentional drawing content.
+    """
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY) if image.ndim == 3 else image.copy()
+    kernel_size = max(3, round(background_mm / 25.4 * dpi) | 1)
+    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (kernel_size, kernel_size))
+    # Extend the paper before closing so a brightness gradient at the image
+    # boundary does not turn into a false dark border.
+    pad = kernel_size // 2
+    padded = cv2.copyMakeBorder(gray, pad, pad, pad, pad, cv2.BORDER_REPLICATE)
+    background = cv2.morphologyEx(padded, cv2.MORPH_CLOSE, kernel)[pad:-pad, pad:-pad]
+    flattened = cv2.divide(gray, np.maximum(background, 1), scale=255)
+    _, binary = cv2.threshold(flattened, 255 - ink_contrast, 255, cv2.THRESH_BINARY)
+
+    if min_ink_area > 0:
+        _, labels, stats, _ = cv2.connectedComponentsWithStats(255 - binary, connectivity=8)
+        small = stats[:, cv2.CC_STAT_AREA] < min_ink_area
+        small[0] = False  # Label zero is the white background.
+        binary[small[labels]] = 255
+    border = round(border_mm / 25.4 * dpi)
+    if border > 0:
+        binary[:border, :] = binary[-border:, :] = 255
+        binary[:, :border] = binary[:, -border:] = 255
+    return binary
+
+
 def save_capture(frame, corners, args):
     normalized = normalize_a4(frame, corners, args.dpi, args.orientation)
+    binary = clean_black_white(normalized, args.dpi, args.ink_contrast,
+                               args.background_mm, args.min_ink_area, args.border_mm)
     args.output_dir.mkdir(parents=True, exist_ok=True)
-    path = args.output_dir / f"paper_a4_{datetime.now():%Y%m%d_%H%M%S_%f}.png"
-    Image.fromarray(cv2.cvtColor(normalized, cv2.COLOR_BGR2RGB)).save(path, dpi=(args.dpi, args.dpi))
-    print(f"Saved {path.resolve()} ({normalized.shape[1]} x {normalized.shape[0]} pixels)")
-    return normalized
+    stem = f"paper_a4_{datetime.now():%Y%m%d_%H%M%S_%f}"
+    color_path = args.output_dir / f"{stem}_color.png"
+    path = args.output_dir / f"{stem}_bw.png"
+    Image.fromarray(cv2.cvtColor(normalized, cv2.COLOR_BGR2RGB)).save(color_path, dpi=(args.dpi, args.dpi))
+    # Mode 1 stores genuinely binary pixels; disable dithering to keep strokes exact.
+    Image.fromarray(binary).convert("1", dither=Image.Dither.NONE).save(path, dpi=(args.dpi, args.dpi))
+    print(f"Saved black/white: {path.resolve()} ({binary.shape[1]} x {binary.shape[0]} pixels)")
+    print(f"Saved color reference: {color_path.resolve()}")
+    return binary
 
 
 def main():
@@ -76,11 +117,25 @@ def main():
     parser.add_argument("--height", type=int, default=1080, help="Camera stream height (default: 1080)")
     parser.add_argument("--fps", type=int, default=8, help="Camera frame rate (default: 8)")
     parser.add_argument("--orientation", choices=["auto", "portrait", "landscape"], default="auto")
+    parser.add_argument("--ink-contrast", type=int, default=18,
+                        help="Ink darkness relative to paper (1-254); lower keeps faint pencil (default: 18)")
+    parser.add_argument("--background-mm", type=float, default=12,
+                        help="Lighting correction window in mm; use larger than filled shapes (default: 12)")
+    parser.add_argument("--min-ink-area", type=int, default=0,
+                        help="Remove black components smaller than this pixel area (default: 0, preserve all dots)")
+    parser.add_argument("--border-mm", type=float, default=0,
+                        help="Whiten this many mm at the paper edge (default: 0, preserve edge drawings)")
     args = parser.parse_args()
     if not 1 <= args.dpi <= 1200:
         parser.error("--dpi must be between 1 and 1200")
     if min(args.width, args.height, args.fps) < 1:
         parser.error("--width, --height and --fps must be positive")
+    if not 1 <= args.ink_contrast <= 254:
+        parser.error("--ink-contrast must be between 1 and 254")
+    if not 0 < args.background_mm <= 297:
+        parser.error("--background-mm must be greater than 0 and at most 297")
+    if args.min_ink_area < 0 or not 0 <= args.border_mm < 105:
+        parser.error("--min-ink-area must be nonnegative; --border-mm must be between 0 and 105 (exclusive)")
 
     if args.image:
         frame = cv2.imread(str(args.image))
@@ -130,7 +185,8 @@ def main():
                     continue
                 normalized = save_capture(frame, corners, args)
                 scale = min(800 / normalized.shape[1], 800 / normalized.shape[0])
-                cv2.imshow("A4 capture", cv2.resize(normalized, None, fx=scale, fy=scale))
+                cv2.imshow("A4 black and white capture", cv2.resize(normalized, None, fx=scale, fy=scale,
+                                                                  interpolation=cv2.INTER_NEAREST))
     finally:
         pipeline.stop()
         cv2.destroyAllWindows()

@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3508 2480" width="3508" height="2480">
+  <!-- Balloon Inner Highlight -->
+  <path d="M 2525 390 C 2485 470 2500 580 2540 670" stroke="black" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Balloon Knot & Ribbon -->
+  <path d="M 2642 888 C 2636 912 2642 928 2655 928 C 2668 928 2674 912 2665 888 Z" stroke="black" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 2648 928 C 2630 955 2616 988 2626 1022" stroke="black" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 2658 928 C 2674 955 2690 985 2680 1018" stroke="black" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Balloon String -->
+  <path d="M 2654 928 C 2638 1060 2682 1190 2615 1315 C 2550 1435 2420 1515 2275 1575 C 2130 1635 1985 1650 1860 1668 C 1805 1676 1762 1685 1720 1700" stroke="black" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 1720 1715 C 1710 1765 1740 1820 1725 1875 C 1715 1910 1695 1935 1710 1965" stroke="black" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Girl Profile (Head, Face, Neck) -->
+  <path d="M 1345 1425 C 1355 1385 1365 1355 1375 1335" stroke="black" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 1395 1420 C 1410 1410 1435 1400 1442 1385" stroke="black" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 1442 1385 C 1448 1375 1446 1368 1440 1364 C 1447 1360 1449 1352 1444 1344 C 1450 1340 1464 1335 1458 1324 C 1448 1315 1434 1318 1426 1300 C 1416 1278 1395 1260 1365 1255 C 1330 1250 1300 1270 1285 1305" stroke="black" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Ear & Eye -->
+  <path d="M 1372 1345 C 1365 1340 1355 1348 1358 1362 C 1360 1372 1370 1376 1376 1368" stroke="black" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 1418 1322 C 1426 1316 1436 1318 1442 1325" stroke="black" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 1430 1325 C 1434 1327 1436 1332 1434 1336 C 1431 1339 1426 1338 1424 1334" stroke="black" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 1416 1308 C 1428 1302 1440 1305 1446 1312" stroke="black" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Hair & Ponytail -->
+  <path d="M 1365 1255 C 1385 1285 1395 1315 1425 1302" stroke="black" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 1305 1265 C 1310 1248 1325 1240 1336 1248 C 1344 1255 1342 1270 1332 1276 Z" stroke="black" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 1318 1250 C 1245 1215 1160 1245 1105 1325 C 1155 1320 1220 1308 1280 1315 C 1295 1298 1310 1285 1325 1275" stroke="black" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 1105 1325 C 1070 1365 1060 1415 1075 1450 C 1100 1410 1145 1375 1205 1355" stroke="black" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Dress Bodice -->
+  <path d="M 1345 1425 C 1320 1445 1295 1465 1285 1495 C 1295 1555 1305 1620 1315 1680" stroke="black" stroke-width="5.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 1395 1420 C 1415 1440 1435 1460 1450 1485 C 1442 1550 1435 1615 1425 1680" stroke="black" stroke-width="5.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 1315 1680 C 1350 1672 1390 1672 1425 1680" stroke="black" stroke-width="5.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Right Arm (Raised holding string) -->
+  <path d="M 1450 1485 C 1495 1515 1550 1560 1600 1615 C 1638 1650 1678 1685 1715 1705" stroke="black" stroke-width="5.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 1435 1520 C 1475 1548 1525 1590 1570 1642 C 1608 1675 1648 1710 1695 1728" stroke="black" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Hand grasping -->
+  <path d="M 1715 1705 C 1726 1696 1738 1700 1735 1714 C 1730 1726 1710 1732 1695 1728" stroke="black" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 1728 1708 C 1736 1710 1740 1718 1736 1725" stroke="black" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Left Arm (Resting at side) -->
+  <path d="M 1285 1495 C 1265 1530 1248 1575 1240 1625 C 1235 1665 1238 1705 1245 1745" stroke="black" stroke-width="5.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 1300 1525 C 1288 1555 1276 1595 1270 1635 C 1266 1670 1268 1705 1272 1740" stroke="black" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 1245 1745 C 1242 1762 1252 1772 1264 1768 C 1272 1762 1274 1750 1272 1740" stroke="black" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Dress Skirt (Flowing slightly) -->
+  <path d="M 1315 1680 C 1280 1765 1230 1860 1175 1960" stroke="black" stroke-width="5.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 1425 1680 C 1450 1765 1485 1860 1520 1960" stroke="black" stroke-width="5.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 1175 1960 C 1220 1945 1260 1970 1310 1955 C 1360 1940 1410 1970 1460 1950 C 1485 1942 1505 1955 1520 1960" stroke="black" stroke-width="5.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Dress folds -->
+  <path d="M 1345 1685 C 1335 1770 1320 1855 1308 1955" stroke="black" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 1390 1685 C 1395 1770 1408 1855 1422 1952" stroke="black" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Legs -->
+  <!-- Left Leg -->
+  <path d="M 1295 1960 C 1290 2030 1285 2105 1278 2185" stroke="black" stroke-width="5.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 1330 1960 C 1325 2030 1318 2105 1312 2185" stroke="black" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Right Leg -->
+  <path d="M 1395 1960 C 1400 2030 1410 2105 1420 2185" stroke="black" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 1430 1960 C 1438 2030 1448 2105 1455 2185" stroke="black" stroke-width="5.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Shoes & Socks -->
+  <!-- Left Foot -->
+  <path d="M 1274 2185 C 1260 2188 1235 2205 1225 2225 C 1220 2238 1232 2250 1255 2250 C 1285 2250 1305 2235 1312 2215 C 1315 2200 1314 2185 1312 2185" stroke="black" stroke-width="5.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 1228 2235 C 1255 2238 1285 2235 1310 2225" stroke="black" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Right Foot -->
+  <path d="M 1418 2185 C 1410 2195 1405 2212 1415 2230 C 1425 2248 1455 2250 1485 2250 C 1505 2250 1515 2238 1505 2222 C 1490 2202 1468 2188 1455 2185" stroke="black" stroke-width="5.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 1418 2230 C 1445 2235 1475 2235 1502 2228" stroke="black" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Ground Line & Small Grass -->
+  <path d="M 850 2265 C 1150 2255 1450 2260 1750 2255 C 2050 2250 2350 2265 2650 2255" stroke="black" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 1120 2260 C 1128 2240 1135 2235 1145 2260" stroke="black" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 1138 2260 C 1148 2230 1158 2235 1162 2262" stroke="black" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 1580 2258 C 1588 2235 1598 2238 1605 2258" stroke="black" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 1600 2258 C 1612 2230 1622 2235 1628 2258" stroke="black" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Distant Clouds in the Sky -->
+  <path d="M 520 680 C 530 630 580 610 630 625 C 660 585 730 580 775 615 C 815 595 870 610 885 655 C 925 660 950 700 930 735 C 900 760 550 760 520 680 Z" stroke="black" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 1620 840 C 1635 805 1680 790 1715 805 C 1740 775 1795 770 1830 795 C 1865 780 1910 795 1920 830 C 1955 838 1970 870 1950 898 C 1925 918 1640 918 1620 840 Z" stroke="black" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
